@@ -15,7 +15,7 @@
 <main>
    <?php snippet('intro') ?>
 <?php
-     $myPDO = new PDO('sqlite:./Vakanzengrabber.db');
+     $myPDO = new PDO('sqlite:/var/www/html/site/templates/Vakanzengrabber.db');
      $results = $myPDO->query("Select * From freelancede_2020_10_30 UNION Select * From freelancermap_2020_10_30");
 	 /**
 	 Wenn das Resultat nicht leer ist und ein array ist, wird die ausgabe vorgenommen
