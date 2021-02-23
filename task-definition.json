@@ -2,7 +2,7 @@
    "containerDefinitions": [ 
       {
          "essential": true,
-         "image": "478526318168.dkr.ecr.eu-central-1.amazonaws.com/vacation-backend:6a9a41d17e178b1a3590247c212f38180d58d827",
+         "image": "478526318168.dkr.ecr.eu-central-1.amazonaws.com/ecr-vacation:6a9a41d17e178b1a3590247c212f38180d58d827",
          "logConfiguration": { 
             "logDriver": "awslogs",
             "options": { 
@@ -11,7 +11,7 @@
                "awslogs-stream-prefix": "ecs"
             }
          },
-         "name": "java-task",
+         "name": "fargate-task-definition",
          "mountPoints": [
                 {
                     "containerPath": "/efs",
@@ -19,8 +19,8 @@
                 }],
          "portMappings": [ 
             { 
-               "containerPort": 8080,
-               "hostPort": 8080,
+               "containerPort": 80,
+               "hostPort": 80,
                "protocol": "tcp"
             }
          ]
@@ -37,7 +37,7 @@
     ],
    "cpu": "256",
    "executionRoleArn": "arn:aws:iam::478526318168:role/ecsTaskExecutionRole",
-   "family": "java-task",
+   "family": "fargate-task-definition",
    "memory": "512",
    "networkMode": "awsvpc",
    "requiresCompatibilities": [ 
